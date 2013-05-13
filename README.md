@@ -1,4 +1,4 @@
 PuggleLinux
 ===========
 
-Real-time operating system for the BeagleBone
+Real-time operating system for the BeagleBone.
