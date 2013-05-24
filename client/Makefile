@@ -16,7 +16,6 @@
 ##	this software. If not, see <http://creativecommons.org/licenses/by-sa/3.0/legalcode>.
 ##
 
-INC_DIR = includes
 SRC_DIR = src
 OBJ_DIR = obj
 
@@ -26,12 +25,6 @@ LDFLAGS = -L$(LIB_DIR) -lprussdrv -lpthread
 
 all:
 	puggle
-
-clean:
-	rm puggle
-	rm *.o
-
-.PHONY: clean
 
 clean:
 	rm puggle
