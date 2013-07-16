@@ -26,7 +26,7 @@ echo "Checking for dependencies..."
 
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install automake libtool autoconf autotools-dev build-essential qt3-dev-tools libboost-dev libboost-program-options-dev libgsl0-dev bison flex libncurses5-dev
+sudo apt-get install automake libtool autoconf autotools-dev build-essential qt3-dev-tools libboost-dev libboost-program-options-dev libgsl0-dev bison flex libncurses5-dev libqwt-dev
 
 if [ $? -eq 0 ]; then
 	echo "----->Dependencies installed."
@@ -38,24 +38,27 @@ fi
 # Installing HDF5
 echo "----->Installing HDF5..."
 
-tar xf hdf/hdf5-1.8.4.tar.bz2 -C hdf/.
-./hdf/hdf5-1.8.4/configure
-make -C hdf/hdf5-1.8.4/
-sudo make install -C hdf/hdf5-1.8.4/
+cd hdf
+tar xf hdf5-1.8.4.tar.bz2
+cd hdf5-1.8.4
+./configure --prefix=/usr
+sudo make
+sudo make install
 
 if [ $? -eq 0 ]; then
 	echo "----->HDF5 installed."
 else
-	echo "----->HDF5 installation failed."
+echo "----->HDF5 installation failed."
 	exit
 fi
 
 # Start configuring - by default configured to run on non-RT kernel
 echo "----->Starting xi-bone installation..."
 
+cd ../../
 ./autogen.sh
 ./configure 
-make -C ./
+sudo make -C ./
 sudo make install -C ./
 
 if [ $? -eq 0 ]; then
