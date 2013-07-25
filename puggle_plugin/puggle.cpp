@@ -58,11 +58,11 @@ Puggle::update(DefaultGUIModel::update_flags_t flag)
     {
   case INIT:
     period = RT::System::getInstance()->getPeriod() * 1e-6; // ms
-    setParameter("GUI label", some_parameter);
-    setState("A State", some_state);
+    setParameter("GUI label", f_s);
+    setState("A State", state);
     break;
   case MODIFY:
-    some_parameter = getParameter("GUI label").toDouble();
+    f_s = getParameter("GUI label").toDouble();
     break;
   case UNPAUSE:
     break;
@@ -108,8 +108,8 @@ Puggle::createGUI(DefaultGUIModel::variable_t *var, int size)
   // clicked() is a Qt signal that is given to pushbuttons. The connect()
   // function links the clicked() event to a function that is defined
   // as a "private slot:" in the header.
-  QObject::connect(aBttn, SIGNAL(clicked()), this, SLOT(aBttn_event()));
-  QObject::connect(bBttn, SIGNAL(clicked()), this, SLOT(bBttn_event()));
+  QObject::connect(aBttn, SIGNAL(clicked()), this, SLOT(initButton()));
+  QObject::connect(bBttn, SIGNAL(clicked()), this, SLOT(modifyButton()));
 
   //these 3 utility buttons are copied from DefaultGUIModel
   QHBox *utilityBox = new QHBox(this);
@@ -212,11 +212,11 @@ Puggle::createGUI(DefaultGUIModel::variable_t *var, int size)
 
 // functions designated as Qt slots are implemented as regular C++ functions
 void
-Puggle::aBttn_event(void){
+Puggle::initButton(void){
 
 }
 
 void
-Puggle::bBttn_event(void){
+Puggle::modifyButton(void){
 
 }

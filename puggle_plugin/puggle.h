@@ -28,8 +28,8 @@ protected:
 
 private:
 
-  double some_parameter;
-  double some_state;
+  double f_s;
+  double state;
   double period;
 
 private slots:
@@ -38,8 +38,8 @@ private slots:
 // in puggle.cpp
 
   void
-  aBttn_event(void);
+  initButton(void);
   void
-  bBttn_event(void);
+  modifyButton(void);
 
 };
