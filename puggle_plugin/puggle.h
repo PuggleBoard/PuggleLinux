@@ -8,38 +8,38 @@
 class Puggle : public DefaultGUIModel
 {
 
-  Q_OBJECT
+        Q_OBJECT
 
 public:
 
-  Puggle(void);
-  virtual
-  ~Puggle(void);
+        Puggle(void);
+        virtual
+        ~Puggle(void);
 
-  void
-  execute(void);
-  void
-  createGUI(DefaultGUIModel::variable_t *, int);
+        void
+        execute(void);
+        void
+        createGUI(DefaultGUIModel::variable_t *, int);
 
 protected:
 
-  virtual void
-  update(DefaultGUIModel::update_flags_t);
+        virtual void
+        update(DefaultGUIModel::update_flags_t);
 
 private:
 
-  double f_s;
-  double state;
-  double period;
+        double f_s;
+        double state;
+        double period;
 
 private slots:
 // these are custom functions that can also be connected
 // to events through the Qt API. they must be implemented
 // in puggle.cpp
 
-  void
-  initButton(void);
-  void
-  modifyButton(void);
+        void
+        initButton(void);
+        void
+        modifyButton(void);
 
 };
