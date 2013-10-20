@@ -1,9 +1,0 @@
-APP_DIRS += puggle
-
-ASSEM_FILES :=
-ASSEM_FILES += puggle/spiagent.p
-ASSEM_FILES += puggle/dataxferagent.p
-
-BIN_FILES :=
-BIN_FILES += puggle/spiagent.p
-BIN_FILES += puggle/dataxferagent.p

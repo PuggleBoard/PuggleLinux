@@ -33,3 +33,4 @@ $(TARGET): $(OBJ)
 
 clean:
 	@rm *.so
+	@rm *~
