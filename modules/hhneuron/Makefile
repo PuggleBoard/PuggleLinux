@@ -22,17 +22,14 @@ HEADERS = hhneuron.h
 SOURCES = hhneuron.cpp
 
 CFLAGS += -Wall -I$(INCDIR_APP_LOADER) -D__DEBUG -mtune=cortex-a8 -march=armv7-a
-LDFLAGS += -L$(LIBDIR_APP_LOADER) -lpthread -fPIC -ldl
-LIBFLAGS += -lfPIC -shared
+LDFLAGS += -L$(LIBDIR_APP_LOADER) -lpthread -fPIC -ldl -shared
 OBJDIR = obj
-OBJS = hhneuron.o
 TARGET = hhneuron.so
 
 $(TARGET): $(OBJ)
-	@$(GCC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+	@$(GCC) $(LDFLAGS) -o $@ $^
 
 .PHONY: clean
 
 clean:
 	@rm *.so
-	@rm *.o
